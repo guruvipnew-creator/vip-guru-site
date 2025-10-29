@@ -16,16 +16,14 @@
     *{box-sizing:border-box;}
     body {
       margin:0;
-      font-family: "Poppins", system-ui, sans-serif;
-      background: var(--bg);
+      font-family:"Poppins",system-ui,sans-serif;
+      background:var(--bg);
       color:#fff;
       min-height:100vh;
       padding:20px;
     }
     .wrap { max-width:900px; margin:auto; }
-    header {
-      display:flex; align-items:center; gap:12px; margin-bottom:16px;
-    }
+    header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
     .logo {
       width:70px; height:70px; border-radius:16px;
       background:linear-gradient(135deg,#ff416c,#ff4b2b);
@@ -33,9 +31,7 @@
       font-size:30px; font-weight:900; color:white;
       box-shadow:0 8px 30px rgba(0,0,0,.5);
     }
-    h1 {
-      font-size:22px; color:#fff; text-shadow:0 4px 20px rgba(0,0,0,.5);
-    }
+    h1 { font-size:22px; color:#fff; text-shadow:0 4px 20px rgba(0,0,0,.5); }
     .hero-card {
       background:linear-gradient(90deg,#ff416c,#ffed00);
       border-radius:20px; padding:16px; color:#111;
@@ -64,32 +60,17 @@
       text-align:center; box-shadow:0 8px 40px rgba(0,0,0,.5);
     }
     .qr-box img {
-      max-width:220px; border-radius:12px;
-      box-shadow:0 8px 20px rgba(0,0,0,.4);
+      width:220px; height:auto;
+      border-radius:12px; display:block;
+      margin:10px auto; box-shadow:0 8px 20px rgba(0,0,0,.4);
     }
-    .upi-text {
-      margin-top:10px;
-      font-size:17px;
-      font-weight:800;
-      color:#fff;
-    }
+    .upi-text { margin-top:10px; font-size:17px; font-weight:800; color:#fff; }
     .colorful-text span {
-      font-weight:900;
-      font-size:18px;
+      font-weight:900; font-size:18px;
       text-shadow:0 2px 8px rgba(0,0,0,.6);
     }
-    .red {color:var(--red);}
-    .yellow {color:var(--yellow);}
-    .blue {color:var(--blue);}
-    .green {color:var(--green);}
-    .note-box {
-      margin-top:22px;
-      background:rgba(255,255,255,0.1);
-      padding:16px; border-radius:14px;
-      text-align:center; font-size:16px;
-      line-height:1.6;
-    }
-    .note-box b {font-size:18px;}
+    .red {color:var(--red);} .yellow {color:var(--yellow);}
+    .blue {color:var(--blue);} .green {color:var(--green);}
     .telegram {
       margin-top:24px; text-align:center;
       padding:14px; border-radius:12px;
@@ -97,12 +78,8 @@
       color:#fff; font-weight:900;
       box-shadow:0 6px 25px rgba(0,0,0,.5);
     }
-    .telegram a {
-      color:#fff; text-decoration:underline; font-size:17px;
-    }
-    footer {
-      margin-top:24px; text-align:center; font-size:14px; color:#aaa;
-    }
+    .telegram a { color:#fff; text-decoration:underline; font-size:17px; }
+    footer { margin-top:24px; text-align:center; font-size:14px; color:#aaa; }
   </style>
 </head>
 <body>
@@ -112,9 +89,7 @@
       <h1>GURU VIP PREBOOKING 4.1 { PRIME MEMBERSHIP }</h1>
     </header>
 
-    <div class="hero-card">
-      🔥 Choose Your Plan 🔥
-    </div>
+    <div class="hero-card">🔥 Choose Your Plan 🔥</div>
 
     <div class="plans">
       <div class="plan"><div class="left">PRIME Esp + Loader — 1DAY — ₹99</div><button class="pay-btn" onclick="startPayment('99')">Pay Now</button></div>
@@ -129,13 +104,12 @@
 
     <div class="qr-box">
       <div class="colorful-text">
-        <span class="red">❤️ निचे स्कैनर और UPI दिया गया है ❤️</span><br>
+        <span class="red">❤️ नीचे स्कैनर और UPI दिया गया है ❤️</span><br>
         <span class="yellow">💛 पेमेंट करने के बाद Screenshot</span><br>
         <span class="blue">💙 Owner <b>@GuRuOfCoNfigS</b> को भेजें ✓</span><br>
         <span class="green">💚 पेमेंट के बाद तुरंत access मिलेगा 💚</span>
       </div>
-      <br>
-      <img src="1000591424.jpg" alt="PhonePe QR" />
+      <img id="qrImage" src="" alt="Payment QR">
       <div class="upi-text">💎 UPI ID: <b>rajeshkumar78694@axl</b></div>
     </div>
 
@@ -153,6 +127,19 @@
   <script>
     const UPI_ID = "rajeshkumar78694@axl";
     const NAME = "GuruOfConfigs";
+
+    // QR image fix — check file availability
+    const qrNames = [
+      "AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png",
+      "1000591424.jpg",
+      "1000591584.jpg"
+    ];
+    const img = document.getElementById("qrImage");
+    for (const name of qrNames) {
+      fetch(name).then(r=>{
+        if(r.ok){ img.src = name; throw "done"; }
+      }).catch(()=>{});
+    }
 
     function startPayment(amount){
       const note = "GURU VIP MEMBERSHIP";
