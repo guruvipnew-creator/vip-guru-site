@@ -143,10 +143,9 @@
         <button class="copy-btn" id="copyUpiBtn">Copy UPI</button>
         <button class="copy-btn" onclick="showInstructions()">How to pay</button>
       </div>
-
-      <p style="font-size:13px;color:#666;margin-top:12px;text-align:center">
-        अगर मोबाइल पर UPI ऐप नहीं खुलता — तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें। पे होने के बाद स्क्रीनशॉट और TXN आईडी टेलीग्राम पर भेजें।
-      </p>
+<p style="font-size:13px;color:#666;margin-top:12px;text-align:center">
+  अगर मोबाइल पर UPI ऐप नहीं खुलता — तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें। पे होने के बाद स्क्रीनशॉट और TXN आईडी Telegram पर भेजें: <strong>@GuRuOfCoNfigS</strong>
+</p>
     </div>
   </div>
 
@@ -190,15 +189,15 @@
       const href = e.currentTarget.href;
       window.location.href = href;
       setTimeout(()=> {
-        alert('अगर आपका UPI ऐप नहीं खुला, तो QR स्कैन करें या UPI ID कॉपी करके पे करें: ' + CONFIG.paytmUpi);
-      }, 900);
+  alert('अगर आपका UPI ऐप नहीं खुला तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें: ' + CONFIG.paytmUpi + '\n\nपे होने के बाद स्क्रीनशॉट और TXN ID Telegram पर भेजें: @GuRuOfCoNfigS');
+}, 900);
       e.preventDefault();
       return false;
     }
 
     function showInstructions(){
-      alert('QR स्कैन करें या UPI ID कॉपी करके अपने UPI ऐप में पे करें। पे होने के बाद TXN स्क्रीनशॉट Telegram पर भेजें: ' + CONFIG.telegram);
-    }
+  alert('QR स्कैन करें या UPI ID कॉपी करके अपने UPI ऐप में पे करें। पे होने के बाद TXN स्क्रीनशॉट और पे की रसीद (TXN ID) Telegram पर भेजें: @GuRuOfCoNfigS');
+}
   </script>
 </body>
 </html>
