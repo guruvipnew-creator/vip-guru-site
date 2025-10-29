@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -7,38 +6,76 @@
   <title>💎 Guru VIP Store 💎</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
+      font-family: 'Poppins', sans-serif;
       background: #fff;
-      color: #000;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
     h1 {
       color: red;
-      margin-top: 30px;
+      margin-top: 20px;
     }
-    .box {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin: 20px;
-      display: inline-block;
-      width: 80%;
+    .price-box {
+      width: 90%;
       max-width: 400px;
-    }
-    button {
-      width: 100%;
-      background: linear-gradient(to right, #ff6600, #ff0080);
-      border: none;
-      padding: 12px;
-      margin: 10px 0;
+      margin: 15px auto;
+      padding: 10px;
+      border-radius: 16px;
+      background: linear-gradient(90deg, orange, deeppink);
       color: white;
-      font-size: 18px;
-      border-radius: 10px;
+      font-size: 22px;
+      font-weight: 600;
       cursor: pointer;
     }
-    button:hover {
-      opacity: 0.9;
+    .price-box:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+    #payment-section {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #f7f7f7;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .qr-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .qr-box {
+      background: white;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      margin: 10px;
+      width: 200px;
+    }
+    .qr-box img {
+      width: 180px;
+      height: 180px;
+      border-radius: 8px;
+    }
+    .upi {
+      margin-top: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+    .back-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
     }
   </style>
 </head>
@@ -46,51 +83,45 @@
 
   <h1>💎 Guru VIP Membership 💎</h1>
 
-  <div class="box">
-    <h2>ESP (PRIME + Loader)</h2>
+  <div class="price-box" onclick="showPayment(99)">₹99</div>
+  <div class="price-box" onclick="showPayment(199)">₹199</div>
+  <div class="price-box" onclick="showPayment(399)">₹399</div>
+  <div class="price-box" onclick="showPayment(699)">₹699</div>
+  <div class="price-box" onclick="showPayment(999)">₹999</div>
+  <div class="price-box" onclick="showPayment(2999)">₹2999</div>
 
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=99&cu=INR">
-      <button>₹99</button>
-    </a>
+  <div id="payment-section">
+    <h2>💰 Payment Options</h2>
+    <p id="amount-text"></p>
 
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=199&cu=INR">
-      <button>₹199</button>
-    </a>
+    <div class="qr-container">
+      <div class="qr-box">
+        <h3>📱 PhonePe</h3>
+        <img src="1000591273.png" alt="PhonePe QR">
+        <div class="upi">UPI: <b>yourphonepe@upi</b></div>
+      </div>
 
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=399&cu=INR">
-      <button>₹399</button>
-    </a>
+      <div class="qr-box">
+        <h3>💳 Paytm</h3>
+        <img src="1000591275.png" alt="Paytm QR">
+        <div class="upi">UPI: <b>yourpaytm@paytm</b></div>
+      </div>
+    </div>
 
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=699&cu=INR">
-      <button>₹699</button>
-    </a>
-
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=999&cu=INR">
-      <button>₹999</button>
-    </a>
-
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=2999&cu=INR">
-      <button>₹2999</button>
-    </a>
+    <button class="back-btn" onclick="hidePayment()">⬅ वापस जाएं</button>
   </div>
 
-  <div class="box">
-    <h2>OBB Files</h2>
-
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=299&cu=INR">
-      <button>₹299</button>
-    </a>
-
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=499&cu=INR">
-      <button>₹499</button>
-    </a>
-
-    <a href="upi://pay?pa=guruvip@upi&pn=Guru+VIP+Store&am=799&cu=INR">
-      <button>₹799</button>
-    </a>
-  </div>
-
-  <p>© 2025 Guru VIP Store | All Rights Reserved</p>
+  <script>
+    function showPayment(amount) {
+      document.getElementById("amount-text").innerHTML = 
+        `आपने ₹${amount} का प्लान चुना है 🔥`;
+      document.getElementById("payment-section").style.display = "block";
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+    function hidePayment() {
+      document.getElementById("payment-section").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
