@@ -81,47 +81,36 @@
 </head>
 <body>
 
-  <h1>💎 Guru VIP Membership 💎</h1>
+<h1>💎 गुरु वीआईपी सदस्यता 💎</h1>
 
-  <div class="price-box" onclick="showPayment(99)">₹99</div>
-  <div class="price-box" onclick="showPayment(199)">₹199</div>
-  <div class="price-box" onclick="showPayment(399)">₹399</div>
-  <div class="price-box" onclick="showPayment(699)">₹699</div>
-  <div class="price-box" onclick="showPayment(999)">₹999</div>
-  <div class="price-box" onclick="showPayment(2999)">₹2999</div>
+<div class="price-box">
+  <h2>प्लान चुनें (Choose Your Plan)</h2>
+  <ul style="list-style:none; padding:0; font-size:18px;">
+    <li>1 दिन – ₹99</li>
+    <li>3 दिन – ₹199</li>
+    <li>7 दिन – ₹399</li>
+    <li>1 महीना – ₹699</li>
+    <li>पूरा सीजन – ₹999</li>
+    <li>आजीवन सदस्यता – ₹1999</li>
+  </ul>
+</div>
 
-  <div id="payment-section">
-    <h2>💰 Payment Options</h2>
-    <p id="amount-text"></p>
+<div class="payment-section" id="payment">
+  <h2 style="color:#e91e63;">भुगतान विकल्प (Payment Options)</h2>
 
-    <div class="qr-container">
-      <div class="qr-box">
-        <h3>📱 PhonePe</h3>
-        <img src="1000591273.png" alt="PhonePe QR">
-        <div class="upi">UPI: <b>yourphonepe@upi</b></div>
-      </div>
-
-      <div class="qr-box">
-        <h3>💳 Paytm</h3>
-        <img src="1000591275.png" alt="Paytm QR">
-        <div class="upi">UPI: <b>yourpaytm@paytm</b></div>
-      </div>
+  <div class="qr-container">
+    <div class="qr-box">
+      <h3>📱 PhonePe</h3>
+      <img src="AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png" alt="PhonePe QR" width="180">
+      <p class="upi">Mr Rajesh Kumar Kahar</p>
     </div>
 
-    <button class="back-btn" onclick="hidePayment()">⬅ वापस जाएं</button>
+    <div class="qr-box">
+      <h3>💸 Paytm / UPI</h3>
+      <img src="Paytm_QRcode_1761710176234.png" alt="Paytm QR" width="180">
+      <p class="upi">UPI ID: 7869458148@ptyes</p>
+    </div>
   </div>
 
-  <script>
-    function showPayment(amount) {
-      document.getElementById("amount-text").innerHTML = 
-        `आपने ₹${amount} का प्लान चुना है 🔥`;
-      document.getElementById("payment-section").style.display = "block";
-      window.scrollTo(0, document.body.scrollHeight);
-    }
-    function hidePayment() {
-      document.getElementById("payment-section").style.display = "none";
-    }
-  </script>
-
-</body>
-</html>
+  <p style="margin-top:20px;">कृपया ऊपर QR Code स्कैन कर भुगतान करें ✅</p>
+</div>
