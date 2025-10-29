@@ -1,245 +1,33 @@
-<!doctype html>
-<html lang="hi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PAID VIP MEMBERSHIP BY GURU</title>
-  <style>
-    :root{--accent:#0b6d6d;--bg:#0f1720;--card:#ffffff;--muted:#6b7280}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#0b1220,#101827);color:#fff;min-height:100vh}
-    .wrap{max-width:880px;margin:18px auto;padding:18px}
-    header{display:flex;gap:12px;align-items:center}
-    h1{margin:0;font-weight:700;font-size:20px}
-    .card{background:#fff;color:#111;border-radius:12px;padding:14px;margin-top:14px;box-shadow:0 6px 20px rgba(2,6,23,.5)}
-    .prices{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .price-btn{background:var(--accent);color:#fff;border:0;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:600}
-    .small{font-size:13px;color:var(--muted);margin-top:8px}
-    .list{margin:8px 0;padding-left:16px;color:#222}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .ghost{background:transparent;border:1px solid #ddd;padding:8px;border-radius:8px;cursor:pointer}
-    .center{display:flex;justify-content:center;align-items:center}
-    .flex{display:flex;gap:8px;align-items:center}
-    .qrbox{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-top:12px}
-    .qrpane{min-width:220px}
-    .muted{color:#444;font-size:13px}
-    .upiid{font-weight:700}
-    .scanner{margin-top:12px}
-    footer{margin-top:18px;color:#cbd5e1;font-size:13px}
-    /* modal */
-    .modal-back{position:fixed;inset:0;background:rgba(1,2,6,.6);display:none;justify-content:center;align-items:center;z-index:50}
-    .modal{background:#fff;color:#000;border-radius:12px;padding:18px;max-width:720px;width:94%;box-shadow:0 12px 40px rgba(2,6,23,.6)}
-    .close{background:#eee;border:0;padding:6px 8px;border-radius:8px;cursor:pointer}
-    .copybtn{background:var(--accent);color:#fff;border:0;padding:8px;border-radius:8px;cursor:pointer;margin-left:8px}
-    @media(max-width:520px){h1{font-size:18px}.prices{gap:8px}}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div style="width:56px;height:56px;border-radius:8px;background:#0b6d6d;display:flex;align-items:center;justify-content:center;font-weight:800">G</div>
-      <div>
-        <h1>PAID VIP MEMBERSHIP BY GURU</h1>
-        <div class="small">Prime cheats + loader • UPI & live scanner built-in</div>
-      </div>
-    </header>
+<!-- NEW: अलग-अलग प्रोडक्ट सेक्शन और vertical price buttons -->
+<div class="actions">
 
-    <div class="card" id="mainCard">
-      <div style="font-weight:700">Offers</div>
-      <ul class="list">
-        <li>PRIME Esp + Loader — 1 Day = ₹99 / 3 Day = ₹199 / 7 Day = ₹399 / 1 Month = ₹699 / Full Season = ₹999 / Lifetime = ₹2999</li>
-        <li>PRIME OBB — Full Season = ₹299</li>
-        <li>PRIME WALL HACK — Full Season = ₹499</li>
-        <li>COLOUR BODY = FREE</li>
-      </ul>
-
-      <div class="actions">
-        <!-- price buttons -->
-        <div class="prices" id="prices">
-          <button class="price-btn" data-amount="99" data-item="PRIME Esp + Loader — 1 Day">₹99</button>
-          <button class="price-btn" data-amount="199" data-item="PRIME Esp + Loader — 3 Day">₹199</button>
-          <button class="price-btn" data-amount="399" data-item="PRIME Esp + Loader — 7 Day">₹399</button>
-          <button class="price-btn" data-amount="699" data-item="PRIME Esp + Loader — 1 Month">₹699</button>
-          <button class="price-btn" data-amount="999" data-item="PRIME Esp + Loader — Full Season">₹999</button>
-          <button class="price-btn" data-amount="2999" data-item="PRIME Esp + Loader — Lifetime">₹2999</button>
-          <button class="price-btn" data-amount="299" data-item="PRIME OBB — Full Season">OBB ₹299</button>
-          <button class="price-btn" data-amount="499" data-item="PRIME WALL HACK — Full Season">WALL ₹499</button>
-        </div>
-      </div>
-
-      <div class="small">Join my channel 👇 🔑</div>
-      <div style="margin-top:6px">
-        <a href="https://t.me/+KaQlh_AMbPJkN2Vl" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">https://t.me/+KaQlh_AMbPJkN2Vl</a>
-      </div>
-
-      <div style="margin-top:12px" class="muted">UPI IDs (copy or scan after you click a price):</div>
-      <div style="margin-top:6px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <div class="card" style="padding:10px;background:#f7fafc;color:#111;border-radius:10px;">
-          <div style="font-size:13px;color:#333">Paytm UPI ID</div>
-          <div class="upiid" id="paytmId">7869458148@ptyes</div>
-        </div>
-        <div class="card" style="padding:10px;background:#f7fafc;color:#111;border-radius:10px;">
-          <div style="font-size:13px;color:#333">PhonePe UPI ID</div>
-          <div class="upiid" id="phonepeId">7869493204@ibl</div>
-        </div>
-      </div>
-
-      <div class="small" style="margin-top:12px">Scanner / QR reader</div>
-      <div class="card scanner">
-        <div id="reader" style="width:100%;max-width:420px"></div>
-        <div style="margin-top:10px;font-size:13px;color:#444">Scan any QR to open result. (Allow camera on prompt)</div>
-      </div>
-    </div>
-
-    <footer class="center">
-      <div style="text-align:center">
-        Made by <strong>Guru</strong> • Share link with buyers. Host on GitHub Pages for always-on availability (instructions below).
-      </div>
-    </footer>
-  </div>
-
-  <!-- modal showing UPI QR & copy buttons -->
-  <div class="modal-back" id="modalBack">
-    <div class="modal">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <div id="modalTitle" style="font-weight:700">Pay ₹99</div>
-          <div style="font-size:13px;color:#444" id="modalItem">Item description</div>
-        </div>
-        <div>
-          <button class="close" id="closeModal">Close</button>
-        </div>
-      </div>
-
-      <div class="qrbox">
-        <div class="qrpane card" style="padding:12px">
-          <div style="font-size:13px;color:#666">Scan to pay</div>
-          <div id="qrcode" style="margin-top:10px"></div>
-          <div style="margin-top:8px" class="muted">OR copy UPI ID</div>
-          <div style="display:flex;align-items:center;margin-top:6px">
-            <div id="modalUpi" class="upiid">7869458148@ptyes</div>
-            <button class="copybtn" id="copyUpi">Copy</button>
-          </div>
-          <div style="margin-top:8px;font-size:12px;color:#666">Amount: <span id="modalAmount">₹99</span></div>
-        </div>
-
-        <div style="flex:1">
-          <div style="font-weight:700">After payment</div>
-          <div style="margin-top:8px;color:#333">1) Take screenshot of transaction / TXN ID<br>2) Send to Telegram channel or contact to receive access.<br>3) If you want auto verification, developer integration required.</div>
-
-          <div style="margin-top:12px">
-            <button class="ghost" id="showScannerFromModal">Open Scanner (to scan UPI QR)</button>
-          </div>
-        </div>
-      </div>
+  <!-- ESP Section -->
+  <div class="card" style="padding:12px;margin-bottom:10px;">
+    <div style="font-weight:700;margin-bottom:8px">ESP (PRIME Esp + Loader)</div>
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+      <button class="price-btn-block" data-amount="99"  data-item="PRIME Esp + Loader — 1 Day">₹99</button>
+      <button class="price-btn-block" data-amount="199" data-item="PRIME Esp + Loader — 3 Day">₹199</button>
+      <button class="price-btn-block" data-amount="399" data-item="PRIME Esp + Loader — 7 Day">₹399</button>
+      <button class="price-btn-block" data-amount="699" data-item="PRIME Esp + Loader — 1 Month">₹699</button>
+      <button class="price-btn-block" data-amount="999" data-item="PRIME Esp + Loader — Full Season">₹999</button>
+      <button class="price-btn-block" data-amount="2999" data-item="PRIME Esp + Loader — Lifetime">₹2999</button>
     </div>
   </div>
 
-  <!-- libraries -->
-  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- OBB Section -->
+  <div class="card" style="padding:12px;margin-bottom:10px;">
+    <div style="font-weight:700;margin-bottom:8px">OBB</div>
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+      <button class="price-btn-block" data-amount="299" data-item="PRIME OBB — Full Season">OBB ₹299</button>
+    </div>
+  </div>
 
-  <script>
-    // CONFIG: change these if needed
-    const CONFIG = {
-      merchantName: "Guru",
-      paytmId: "7869458148@ptyes",
-      phonepeId: "7869493204@ibl",
-      telegram: "https://t.me/+KaQlh_AMbPJkN2Vl"
-    };
+  <!-- WALL HACK Section -->
+  <div class="card" style="padding:12px;margin-bottom:10px;">
+    <div style="font-weight:700;margin-bottom:8px">WALL HACK</div>
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+      <button class="price-btn-block" data-amount="499" data-item="PRIME WALL HACK — Full Season">WALL ₹499</button>
+    </div>
+  </div>
 
-    // init DOM refs
-    const modalBack = document.getElementById('modalBack');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalItem = document.getElementById('modalItem');
-    const modalAmount = document.getElementById('modalAmount');
-    const modalUpi = document.getElementById('modalUpi');
-    const qrcodeEl = document.getElementById('qrcode');
-    const copyUpiBtn = document.getElementById('copyUpi');
-    const closeModalBtn = document.getElementById('closeModal');
-    const showScannerBtn = document.getElementById('showScannerFromModal');
-
-    document.getElementById('paytmId').innerText = CONFIG.paytmId;
-    document.getElementById('phonepeId').innerText = CONFIG.phonepeId;
-
-    // handle price buttons
-    document.querySelectorAll('.price-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const amt = btn.getAttribute('data-amount');
-        const item = btn.getAttribute('data-item');
-        openPaymentModal(item, amt);
-      });
-    });
-
-    function clearQRCode() {
-      qrcodeEl.innerHTML = "";
-    }
-
-    function openPaymentModal(item, amount) {
-      modalTitle.innerText = "Pay ₹" + amount;
-      modalItem.innerText = item;
-      modalAmount.innerText = "₹" + amount;
-      // default show Paytm UPI — you can change to phonepeId if you want
-      modalUpi.innerText = CONFIG.paytmId;
-
-      // create upi uri
-      // UPI URI format: upi://pay?pa=<vpa>&pn=<name>&am=<amount>&cu=INR&tn=<note>
-      const upiUri = `upi://pay?pa=${encodeURIComponent(CONFIG.paytmId)}&pn=${encodeURIComponent(CONFIG.merchantName)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(item)}`;
-
-      clearQRCode();
-      new QRCode(qrcodeEl, {
-        text: upiUri,
-        width: 200,
-        height: 200,
-        correctLevel: QRCode.CorrectLevel.H
-      });
-
-      modalBack.style.display = 'flex';
-    }
-
-    closeModalBtn.addEventListener('click', ()=> modalBack.style.display = 'none');
-    modalBack.addEventListener('click', (e)=>{ if(e.target === modalBack) modalBack.style.display = 'none' });
-
-    copyUpiBtn.addEventListener('click', ()=>{
-      const text = modalUpi.innerText;
-      navigator.clipboard.writeText(text).then(()=>{
-        copyUpiBtn.innerText = "Copied!";
-        setTimeout(()=>copyUpiBtn.innerText = "Copy",1200);
-      }).catch(()=>alert('Copy failed — please long-press to copy.'));
-    });
-
-    // Open the html5-qrcode scanner in the page
-    const html5QrCode = new Html5Qrcode(/* element id */ "reader");
-    const qrConfig = { fps: 10, qrbox: 250 };
-    function onScanSuccess(decodedText, decodedResult) {
-      // show result in a small alert, or you can open links automatically
-      alert("Scanned: " + decodedText);
-      // optionally stop scanning to prevent repeated alerts
-      // html5QrCode.stop();
-    }
-    function onScanFailure(error) {
-      // ignore for now
-    }
-    // start camera permission & scanner
-    Html5Qrcode.getCameras().then(cameras => {
-      if (cameras && cameras.length) {
-        const cameraId = cameras[0].id;
-        html5QrCode.start(cameraId, qrConfig, onScanSuccess, onScanFailure).catch(err=>{
-          console.warn("Camera start failed:", err);
-        });
-      }
-    }).catch(err=>{
-      console.warn("No cameras or permission denied", err);
-    });
-
-    // modal scanner button - focus page's reader (camera already active)
-    showScannerBtn.addEventListener('click', ()=>{
-      modalBack.style.display = 'none';
-      // camera is running on reader already; user can scan
-      // scroll to reader
-      document.getElementById('reader').scrollIntoView({behavior:'smooth'});
-    });
-
-    // For safety: if page becomes insecure or on http it may block camera. Host on HTTPS (GitHub Pages recommended).
-  </script>
-</body>
-</html>
+</div>
