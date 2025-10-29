@@ -1,151 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💎 Guru VIP Store 💎</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>💎 गुरु वीआईपी स्टोर 💎</title>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000000, #1e1e1e, #2d0033);
-      color: white;
-      text-align: center;
-      margin: 0;
-      padding: 0;
+    :root{
+      --accent1: #ff416c;
+      --accent2: #ffed00;
+      --card-bg: #fff;
+      --muted: #6b7280;
+      --dark: #0f1720;
+      --cta: #0b6d6d;
     }
-    h1 {
-      color: gold;
-      text-shadow: 2px 2px 8px #ff0099;
-      margin-top: 20px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,#08090b,#13151a);
+      color:#fff;
+      min-height:100vh;
+      padding:20px 14px;
     }
-    .price-box {
-      width: 90%;
-      max-width: 420px;
-      margin: 20px auto;
-      padding: 15px;
-      border-radius: 18px;
-      background: linear-gradient(90deg, #ff0080, #ff8c00, #ffe600);
-      color: #fff;
-      font-size: 22px;
-      font-weight: 600;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    .wrap{max-width:920px;margin:0 auto}
+    header{display:flex;gap:12px;align-items:center; margin-bottom:12px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent1),#ff8a00);
+      display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px;color:#fff;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
-    .price-box:hover {
-      transform: scale(1.05);
-      transition: 0.3s;
+    h1{margin:0;font-size:22px;text-align:center; width:100%; text-shadow:0 4px 18px rgba(0,0,0,0.6)}
+    .hero-card{
+      background: linear-gradient(90deg,#ff416c,#ffed00);
+      padding:26px;border-radius:22px;color:#111;margin:12px 0; box-shadow: 0 16px 40px rgba(0,0,0,0.5);
     }
-    .plan-list li {
-      list-style: none;
-      background: rgba(255,255,255,0.2);
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 18px;
+    .hero-card h2{font-size:28px;margin:0 0 10px 0;color:#fff;text-align:center}
+    .plans{margin-top:12px;display:grid;gap:12px}
+    .plan{
+      background: rgba(255,255,255,0.14);
+      padding:14px;border-radius:12px;color:#fff;display:flex;justify-content:space-between;align-items:center;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.45);
     }
-    #payment-section {
-      margin-top: 25px;
-      padding: 20px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 16px;
-      width: 90%;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    .plan .left{font-size:18px}
+    .plan .right{display:flex;gap:10px;align-items:center}
+    .pay-btn{
+      background: linear-gradient(90deg,#0ea5a4,#047857);
+      border:0;color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;
+      box-shadow: 0 8px 18px rgba(5,50,50,0.35);
     }
-    .qr-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .qr-box {
-      background: white;
-      padding: 12px;
-      border-radius: 12px;
-      margin: 10px;
-      width: 200px;
-    }
-    .qr-box img {
-      width: 180px;
-      height: 180px;
-      border-radius: 10px;
-    }
-    .upi {
-      margin-top: 6px;
-      font-weight: 700;
-      color: black;
-    }
-    .pay-now {
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00c6ff;
-    }
-    .telegram {
-      margin-top: 25px;
-      background: linear-gradient(90deg, #ff0000, #ff7b00, #ffff00);
-      padding: 15px;
-      border-radius: 15px;
-      font-size: 18px;
-      color: black;
-      font-weight: 700;
-      box-shadow: 0 0 15px yellow;
-    }
-    a {
-      color: blue;
-      font-weight: bold;
-      text-decoration: none;
-    }
+    .pay-btn.secondary{background:linear-gradient(90deg,#0b6dfe,#6b21a8)}
+    .muted{color:#d1d5db;font-size:13px;margin-top:8px}
+    /* payment area */
+    #paymentModalBg{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:120}
+    .modal{background:#fff;color:#111;border-radius:14px;padding:16px;max-width:720px;width:94%;box-shadow:0 18px 60px rgba(0,0,0,0.6)}
+    .modal h3{margin:0 0 8px 0}
+    .qr-flex{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;justify-content:center}
+    .qr-card{background:#f7fafc;padding:12px;border-radius:12px;text-align:center;min-width:200px}
+    .qr-card img{max-width:180px;border-radius:8px}
+    .upi-text{font-weight:700;margin-top:10px}
+    .copy-btn{background:var(--cta);color:#fff;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;margin-left:8px}
+    .close-btn{background:#eee;border:0;padding:6px 10px;border-radius:8px;cursor:pointer}
+    footer{margin-top:18px;color:#cbd5e1;font-size:14px;text-align:center}
+    /* telegram banner */
+    .tg-banner{margin-top:18px;padding:14px;border-radius:14px;background:linear-gradient(90deg,#ff4d00,#ffd700);color:#111;font-weight:800;text-align:center}
+    .tg-banner a{display:block;color:#002;margin-top:8px;font-weight:900;text-decoration:underline}
+    @media(max-width:520px){.hero-card h2{font-size:20px}.plan{font-size:15px}}
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div class="logo">G</div>
+      <h1>💎 गुरु वीआईपी सदस्यता 💎</h1>
+    </header>
 
-<h1>💎 गुरु वीआईपी सदस्यता 💎</h1>
+    <div class="hero-card">
+      <h2>🔥 प्लान चुनें (Choose Your Plan) 🔥</h2>
+      <div class="plans">
+        <!-- each plan line: change amount/data-amount as needed -->
+        <div class="plan">
+          <div class="left">1 दिन — ₹99</div>
+          <div class="right">
+            <button class="pay-btn" onclick="startPayment('PRIME Esp + Loader (1 दिन)', '99')">Pay Now</button>
+          </div>
+        </div>
 
-<div class="price-box">
-  <h2>🔥 प्लान चुनें 🔥</h2>
-  <ul class="plan-list">
-    <li>1 दिन – ₹99</li>
-    <li>3 दिन – ₹199</li>
-    <li>7 दिन – ₹399</li>
-    <li>1 महीना – ₹699</li>
-    <li>पूरा सीजन – ₹999</li>
-    <li>आजीवन सदस्यता – ₹1999</li>
-  </ul>
-</div>
+        <div class="plan">
+          <div class="left">3 दिन — ₹199</div>
+          <div class="right">
+            <button class="pay-btn" onclick="startPayment('PRIME Esp + Loader (3 दिन)', '199')">Pay Now</button>
+          </div>
+        </div>
 
-<div id="payment-section">
-  <h2 style="color:#00ffff;">💰 भुगतान विकल्प (Payment Options)</h2>
-  <div class="qr-container">
-    <div class="qr-box">
-      <h3>📱 PhonePe</h3>
-      <a href="upi://pay?pa=7869458148@ptyes&pn=GuruOfConfigs&cu=INR" target="_blank">
-        <img src="AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png" alt="PhonePe QR">
-      </a>
-      <p class="upi">नाम: GuruOfConfigs</p>
+        <div class="plan">
+          <div class="left">7 दिन — ₹399</div>
+          <div class="right">
+            <button class="pay-btn" onclick="startPayment('PRIME Esp + Loader (7 दिन)', '399')">Pay Now</button>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="left">1 महीना — ₹699</div>
+          <div class="right">
+            <button class="pay-btn" onclick="startPayment('PRIME Esp + Loader (1 महीना)', '699')">Pay Now</button>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="left">पूरा सीजन — ₹999</div>
+          <div class="right">
+            <button class="pay-btn" onclick="startPayment('PRIME Esp + Loader (पूरा सीजन)', '999')">Pay Now</button>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="left">आजीवन सदस्यता — ₹1999</div>
+          <div class="right">
+            <button class="pay-btn" onclick="startPayment('PRIME Esp + Loader (आजीवन)', '1999')">Pay Now</button>
+          </div>
+        </div>
+
+        <!-- OBB & WALL separate -->
+        <div class="plan">
+          <div class="left">ANTIBAN VIP PAID OBB — Full Season = ₹399</div>
+          <div class="right">
+            <button class="pay-btn secondary" onclick="startPayment('ANTIBAN VIP PAID OBB (Full Season)', '399')">Pay Now</button>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="left">PAID WALL HACK — Full Season = ₹499</div>
+          <div class="right">
+            <button class="pay-btn secondary" onclick="startPayment('PAID WALL HACK (Full Season)', '499')">Pay Now</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="muted">👇 नीचे दिए QR स्कैन करें या 'Pay Now' दबाएँ — मोबाइल पर UPI ऐप खुलने की कोशिश होगी।</div>
     </div>
 
-    <div class="qr-box">
-      <h3>💸 Paytm</h3>
-      <a href="upi://pay?pa=7869458148@ptyes&pn=GuruOfConfigs&cu=INR" target="_blank">
-        <img src="Paytm_QRcode_1761710176234.png" alt="Paytm QR">
-      </a>
-      <p class="upi">UPI ID: 7869458148@ptyes</p>
+    <!-- telegram / trust banner -->
+    <div class="tg-banner">
+      ❤️ Trusted Deal 1000% VIP Hack ❤️<br>
+      💎 @GuRuOfCoNfigS 💎
+      <a href="https://t.me/+ZP4KvBpRkpQxMDVl" target="_blank">👉 Join My Paid Telegram Channel 👈</a>
+    </div>
+
+    <footer class="muted">Made by Guru • Share link with buyers. Use QR or UPI ID to receive payment.</footer>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+  <div id="paymentModalBg">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <h3 id="modalTitle">Pay ₹99</h3>
+          <div id="modalItem" style="color:#555;margin-bottom:8px">Item description</div>
+        </div>
+        <div>
+          <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+
+      <div class="qr-flex" style="margin-top:10px">
+        <div class="qr-card">
+          <div style="font-weight:700;margin-bottom:8px">📱 Open PhonePe (recommended)</div>
+          <!-- click this image to try opening upi link for PhonePe -->
+          <a id="upiPhonepeLink" href="#" onclick="return tryOpenUPI(event, 'phonepe')">
+            <img src="phonepe_qr.png" alt="PhonePe QR">
+          </a>
+          <div class="upi-text" id="phonepeName">नाम: GuruOfConfigs</div>
+        </div>
+
+        <div class="qr-card">
+          <div style="font-weight:700;margin-bottom:8px">💳 Paytm / UPI</div>
+          <a id="upiPaytmLink" href="#" onclick="return tryOpenUPI(event, 'paytm')">
+            <img src="paytm_qr.png" alt="Paytm QR">
+          </a>
+          <div class="upi-text" id="paytmId">UPI ID: 7869458148@ptyes</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center;justify-content:center">
+        <button class="copy-btn" id="copyUpiBtn">Copy UPI</button>
+        <button class="copy-btn" onclick="showInstructions()">How to pay</button>
+      </div>
+
+      <p style="font-size:13px;color:#666;margin-top:12px;text-align:center">
+        अगर मोबाइल पर UPI ऐप नहीं खुलता — तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें। पे होने के बाद स्क्रीनशॉट और TXN आईडी टेलीग्राम पर भेजें।
+      </p>
     </div>
   </div>
-</div>
 
-<div class="telegram">
-  ❤️ Trusted Deal 1000% VIP Hack ❤️<br>
-  💎 @GuRuOfCoNfigS 💎<br>
-  <a href="https://t.me/+ZP4KvBpRkpQxMDVl" target="_blank">👉 Join My Paid Telegram Channel 👈</a>
-</div>
+  <script>
+    // CONFIG: आपके UPI / नाम यहाँ सेट हैं
+    const CONFIG = {
+      paytmUpi: "7869458148@ptyes",
+      phonepeUpi: "7869458148@ptyes", // अगर PhonePe का अलग VPA है तो बदलें
+      merchantName: "Guru",
+      telegram: "https://t.me/+ZP4KvBpRkpQxMDVl"
+    };
+
+    // open modal with item+amount
+    function startPayment(item, amount){
+      document.getElementById('modalTitle').innerText = 'Pay ₹' + amount;
+      document.getElementById('modalItem').innerText = item + ' • Amount: ₹' + amount;
+      // set UPI links (attempt deeplink)
+      const upiPhone = generateUpiUri(CONFIG.phonepeUpi, CONFIG.merchantName, amount, item);
+      const upiPaytm = generateUpiUri(CONFIG.paytmUpi, CONFIG.merchantName, amount, item);
+      document.getElementById('upiPhonepeLink').href = upiPhone;
+      document.getElementById('upiPaytmLink').href = upiPaytm;
+      document.getElementById('paytmId').innerText = 'UPI ID: ' + CONFIG.paytmUpi;
+      document.getElementById('phonepeName').innerText = 'नाम: GuruOfConfigs';
+
+      // show modal
+      document.getElementById('paymentModalBg').style.display = 'flex';
+
+      // copy button behavior
+      document.getElementById('copyUpiBtn').onclick = function(){
+        navigator.clipboard.writeText(CONFIG.paytmUpi).then(()=>{
+          this.innerText = 'Copied ✓';
+          setTimeout(()=> this.innerText = 'Copy UPI', 1400);
+        }).catch(()=> alert('Copy failed. Long-press to copy: ' + CONFIG.paytmUpi));
+      }
+    }
+
+    function closeModal(){
+      document.getElementById('paymentModalBg').style.display = 'none';
+    }
+
+    // create UPI deeplink
+    function generateUpiUri(vpa, name, amount, note){
+      // upi uri: upi://pay?pa=<vpa>&pn=<name>&am=<amount>&cu=INR&tn=<note>
+      return 'upi://pay?pa=' + encodeURIComponent(vpa) +
+             '&pn=' + encodeURIComponent(name) +
+             '&am=' + encodeURIComponent(amount) +
+             '&cu=INR&tn=' + encodeURIComponent(note);
+    }
+
+    // try to open upi link; if blocked it stays on page (mobile browser may open app)
+    function tryOpenUPI(e, which){
+      // allow default (anchor href) - but prevent page navigation fallback
+      // We'll open the link and also show alert with UPI id as fallback
+      const href = e.currentTarget.href;
+      // open the href
+      window.location.href = href;
+      // fallback message shown after short delay in case app didn't open
+      setTimeout(()=> {
+        alert('अगर आपका UPI ऐप नहीं खुला, तो QR स्कैन करें या UPI ID कॉपी करके पे करें: ' + CONFIG.paytmUpi);
+      }, 900);
+      e.preventDefault();
+      return false;
+    }
+
+    function showInstructions(){
+      alert('QR स्कैन करें या UPI ID कॉपी करके अपने UPI ऐप में पे करें। पे होने के बाद TXN स्क्रीनशॉट Telegram पर भेजें: ' + CONFIG.telegram);
+    }
+  </script>
 
 </body>
 </html>
