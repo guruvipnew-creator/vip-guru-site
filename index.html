@@ -1,116 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💎 Guru VIP Store 💎</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PAID VIP MEMBERSHIP BY GURU</title>
+
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    h1 {
-      color: red;
-      margin-top: 20px;
-    }
-    .price-box {
-      width: 90%;
-      max-width: 400px;
-      margin: 15px auto;
-      padding: 10px;
-      border-radius: 16px;
-      background: linear-gradient(90deg, orange, deeppink);
-      color: white;
-      font-size: 22px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .price-box:hover {
-      transform: scale(1.05);
-      transition: 0.3s;
-    }
-    #payment-section {
-      display: none;
-      margin-top: 25px;
-      padding: 20px;
-      background: #f7f7f7;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .qr-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .qr-box {
-      background: white;
-      padding: 10px;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-      margin: 10px;
-      width: 200px;
-    }
-    .qr-box img {
-      width: 180px;
-      height: 180px;
-      border-radius: 8px;
-    }
-    .upi {
-      margin-top: 8px;
-      font-weight: 600;
-      color: #333;
-    }
-    .back-btn {
-      background: red;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
+    :root{--accent:#0b6d6d;--bg:#0f1720;--card:#ffffff;--muted:#6b7280}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#0b1220,#101827);color:#fff;min-height:100vh}
+    .wrap{max-width:900px;margin:22px auto;padding:18px}
+    header{display:flex;gap:12px;align-items:center}
+    h1{margin:0;font-weight:800;font-size:22px}
+    .card{background:#fff;color:#111;border-radius:14px;padding:16px;margin-top:14px;box-shadow:0 8px 30px rgba(2,6,23,.5)}
+    .plans{display:block;margin-top:10px}
+    .plan-list{list-style:none;padding:0;margin:0 0 10px 0;color:#111;font-size:18px}
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .price-btn{background:var(--accent);color:#fff;border:0;padding:12px 16px;border-radius:12px;cursor:pointer;font-weight:700;min-width:110px;text-align:center}
+    .price-btn.small{min-width:100px;padding:8px 12px}
+    .small{font-size:13px;color:var(--muted);margin-top:10px}
+    .qr-container{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+    .qr-card{background:#fff;padding:12px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.15);color:#111;min-width:220px;text-align:center}
+    .qr-card img{width:180px;height:180px;border-radius:6px}
+    .upi{font-weight:700;margin-top:8px}
+    footer{margin-top:18px;color:#cbd5e1;font-size:13px;text-align:center}
+
+    /* modal */
+    .modal-back{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;z-index:200}
+    .modal{background:#fff;color:#000;border-radius:12px;padding:16px;max-width:720px;width:94%;box-shadow:0 12px 40px rgba(2,6,23,.6)}
+    .close-btn{background:#eee;border:0;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .copybtn{background:var(--accent);color:#fff;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;margin-left:8px}
+    .ghost{background:transparent;border:1px solid #ddd;padding:8px;border-radius:8px;cursor:pointer}
+    /* scanner */
+    #reader{width:100%;max-width:420px;margin-top:12px}
+
+    /* telegram CTA */
+    .tg-cta{margin-top:18px;padding:16px;border-radius:14px;background:linear-gradient(90deg,#ff7a18,#ff4e50,#ff9a8b);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+    .tg-cta h3{margin:0;font-size:20px}
+    .tg-link{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:10px;background:#fff;color:#111;font-weight:700;text-decoration:none}
+    @media(max-width:520px){h1{font-size:18px}.price-btn{min-width:90px}}
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div style="width:56px;height:56px;border-radius:8px;background:#0b6d6d;display:flex;align-items:center;justify-content:center;font-weight:800">G</div>
+      <div style="text-align:left">
+        <h1>PAID VIP MEMBERSHIP BY GURU</h1>
+        <div class="small">Prime packs • UPI pay & live scanner built-in</div>
+      </div>
+    </header>
 
-<h1>💎 गुरु वीआईपी सदस्यता 💎</h1>
+    <div class="card">
+      <div style="font-weight:800;font-size:18px">प्लान चुनें (Choose Your Plan)</div>
+      <ul class="plan-list">
+        <li>1 दिन — ₹99</li>
+        <li>3 दिन — ₹199</li>
+        <li>7 दिन — ₹399</li>
+        <li>1 महीना — ₹699</li>
+        <li>पूरा सीजन — ₹999</li>
+        <li>आजीवन सदस्यता — ₹1999</li>
+      </ul>
 
-<div class="price-box">
-  <h2>प्लान चुनें (Choose Your Plan)</h2>
-  <ul style="list-style:none; padding:0; font-size:18px;">
-    <li>1 दिन – ₹99</li>
-    <li>3 दिन – ₹199</li>
-    <li>7 दिन – ₹399</li>
-    <li>1 महीना – ₹699</li>
-    <li>पूरा सीजन – ₹999</li>
-    <li>आजीवन सदस्यता – ₹1999</li>
-  </ul>
-</div>
+      <div class="btn-row">
+        <!-- प्रत्येक बटन पर data-amount और data-item दिया गया है -->
+        <button class="price-btn" data-amount="99"  data-item="PRIME Esp + Loader — 1 Day">₹99 — Pay Now</button>
+        <button class="price-btn" data-amount="199" data-item="PRIME Esp + Loader — 3 Day">₹199 — Pay Now</button>
+        <button class="price-btn" data-amount="399" data-item="PRIME Esp + Loader — 7 Day">₹399 — Pay Now</button>
+        <button class="price-btn" data-amount="699" data-item="PRIME Esp + Loader — 1 Month">₹699 — Pay Now</button>
+        <button class="price-btn" data-amount="999" data-item="PRIME Esp + Loader — Full Season">₹999 — Pay Now</button>
+        <button class="price-btn" data-amount="1999" data-item="PRIME Esp + Loader — Lifetime">₹1999 — Pay Now</button>
+      </div>
 
-<div class="payment-section" id="payment">
-  <h2 style="color:#e91e63;">भुगतान विकल्प (Payment Options)</h2>
+      <div style="margin-top:14px;font-weight:700">अलग पैकेज</div>
+      <div class="btn-row">
+        <button class="price-btn small" data-amount="299" data-item="PRIME OBB — Full Season">OBB ₹299 — Pay Now</button>
+        <button class="price-btn small" data-amount="499" data-item="PRIME WALL HACK — Full Season">WALL ₹499 — Pay Now</button>
+      </div>
 
-  <div class="qr-container">
-    <div class="qr-box">
-      <h3>📱 PhonePe</h3>
-      <img src="AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png" alt="PhonePe QR" width="180">
-      <p class="upi">Mr Rajesh Kumar Kahar</p>
+      <div style="margin-top:12px" class="small">UPI IDs (copy या QR स्कैन करें):</div>
+
+      <div class="qr-container">
+        <div class="qr-card">
+          <div style="font-weight:700">📱 PhonePe</div>
+          <!-- phonepe.png repo में upload करो -->
+          <img src="phonepe.png" alt="PhonePe QR">
+          <div class="upi">Mr Rajesh Kumar Kahar</div>
+        </div>
+
+        <div class="qr-card">
+          <div style="font-weight:700">💸 Paytm / UPI</div>
+          <!-- paytm.png repo में upload करो -->
+          <img src="paytm.png" alt="Paytm QR">
+          <div class="upi">UPI ID: 7869458148@ptyes</div>
+        </div>
+      </div>
+
+      <div class="small" style="margin-top:12px">Scanner / QR reader (Allow camera on prompt)</div>
+      <div class="card" style="margin-top:10px;padding:12px">
+        <div id="reader" style="width:100%;height:220px;background:#f6f7fb;border-radius:8px"></div>
+        <div style="margin-top:8px;color:#666;font-size:13px">Scan किसी भी QR को खोलने के लिए।</div>
+      </div>
+
+      <div class="tg-cta" style="margin-top:14px;text-align:center">
+        <h3>Trusted deal 1000% VIP hack</h3>
+        <div style="font-weight:700;margin-top:6px">@GuRuOfCoNfigS</div>
+        <a class="tg-link" href="https://t.me/+ZP4KvBpRkpQxMDVl" target="_blank">Join my paid Telegram channel 👇</a>
+      </div>
+
     </div>
 
-    <div class="qr-box">
-      <h3>💸 Paytm / UPI</h3>
-      <img src="Paytm_QRcode_1761710176234.png" alt="Paytm QR" width="180">
-      <p class="upi">UPI ID: 7869458148@ptyes</p>
+    <footer class="center">
+      <div style="text-align:center">
+        Made by <strong>Guru</strong> • Share link with buyers.
+      </div>
+    </footer>
+  </div>
+
+  <!-- payment modal (shows when user clicks a Pay Now button) -->
+  <div class="modal-back" id="modalBack">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div id="modalTitle" style="font-weight:800">Pay</div>
+          <div id="modalItem" style="color:#444;margin-top:6px">Item</div>
+        </div>
+        <div>
+          <button class="close-btn" id="closeModal">Close</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div style="min-width:220px">
+          <div style="font-size:13px;color:#666">Scan to pay (UPI)</div>
+          <div id="qrcode" style="margin-top:8px"></div>
+          <div style="margin-top:8px;color:#666">OR copy UPI ID</div>
+          <div style="display:flex;align-items:center;margin-top:6px">
+            <div id="modalUpi" class="upi">7869458148@ptyes</div>
+            <button class="copybtn" id="copyUpi">Copy</button>
+          </div>
+          <div style="margin-top:8px;font-size:14px;color:#333">Amount: <span id="modalAmount">₹99</span></div>
+        </div>
+
+        <div style="flex:1">
+          <div style="font-weight:700">After payment</div>
+          <div style="margin-top:8px;color:#333">1) Screenshot या TXN ID लें<br>2) Telegram पर भेजें / contact करें access के लिए.<br>3) Auto verification के लिए developer integration चाहिए।</div>
+
+          <div style="margin-top:12px">
+            <button class="ghost" id="openScannerFromModal">Open Scanner</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <p style="margin-top:20px;">कृपया ऊपर QR Code स्कैन कर भुगतान करें ✅</p>
-</div>
+  <!-- libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+
+  <script>
+    const CONFIG = {
+      merchantName: "Guru",
+      paytmId: "7869458148@ptyes",
+      phonepeId: "7869458148@ptyes" // same or change if different
+    };
+
+    // modal elements
+    const modalBack = document.getElementById('modalBack');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalItem = document.getElementById('modalItem');
+    const modalAmount = document.getElementById('modalAmount');
+    const modalUpi = document.getElementById('modalUpi');
+    const qrcodeEl = document.getElementById('qrcode');
+    const copyUpiBtn = document.getElementById('copyUpi');
+    const closeModalBtn = document.getElementById('closeModal');
+    const openScannerFromModal = document.getElementById('openScannerFromModal');
+
+    function clearQRCode() { qrcodeEl.innerHTML = ""; }
+
+    // when price button clicked
+    document.querySelectorAll('.price-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const amount = btn.getAttribute('data-amount');
+        const item = btn.getAttribute('data-item');
+        openPaymentModal(item, amount);
+      });
+    });
+
+    function openPaymentModal(item, amount){
+      modalTitle.innerText = "Pay ₹" + amount;
+      modalItem.innerText = item;
+      modalAmount.innerText = "₹" + amount;
+      modalUpi.innerText = CONFIG.paytmId;
+
+      // UPI uri
+      const upiUri = `upi://pay?pa=${encodeURIComponent(CONFIG.paytmId)}&pn=${encodeURIComponent(CONFIG.merchantName)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(item)}`;
+
+      clearQRCode();
+      new QRCode(qrcodeEl, { text: upiUri, width:200, height:200, correctLevel: QRCode.CorrectLevel.H });
+
+      modalBack.style.display = 'flex';
+    }
+
+    closeModalBtn.addEventListener('click', ()=> modalBack.style.display = 'none');
+    modalBack.addEventListener('click', (e)=>{ if(e.target === modalBack) modalBack.style.display = 'none' });
+
+    copyUpiBtn.addEventListener('click', ()=>{
+      navigator.clipboard.writeText(modalUpi.innerText).then(()=>{
+        copyUpiBtn.innerText = "Copied!";
+        setTimeout(()=>copyUpiBtn.innerText = "Copy",1200);
+      }).catch(()=>alert('Copy failed — long-press to copy.'));
+    });
+
+    // scanner
+    const html5QrCode = new Html5Qrcode("reader");
+    const qrConfig = { fps: 10, qrbox: 250 };
+    function onScanSuccess(decodedText, decodedResult) {
+      // decodedText contains scanned content (could be UPI uri or link)
+      alert("Scanned: " + decodedText);
+      // you can optionally open if it's an URL:
+      if(decodedText.startsWith('http') || decodedText.startsWith('upi:') || decodedText.startsWith('upi://')) {
+        // try open
+        try { window.open(decodedText, '_blank'); } catch(e){}
+      }
+    }
+    function onScanFailure(error) { /* ignore */ }
+
+    Html5Qrcode.getCameras().then(cameras => {
+      if (cameras && cameras.length) {
+        html5QrCode.start(cameras[0].id, qrConfig, onScanSuccess, onScanFailure).catch(err=>{
+          console.warn("Camera start failed:",err);
+        });
+      }
+    }).catch(err=>{
+      console.warn("No cameras or permission denied", err);
+    });
+
+    openScannerFromModal.addEventListener('click', ()=>{
+      modalBack.style.display = 'none';
+      document.getElementById('reader').scrollIntoView({behavior:'smooth'});
+    });
+
+    // safety note if not on https the camera may get blocked
+  </script>
+</body>
+</html>
