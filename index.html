@@ -93,7 +93,7 @@
           <a id="upiPhonepeLink" href="#" onclick="return tryOpenUPI(event,'phonepe')">
             <img src="1000591424.jpg" alt="PhonePe QR">
           </a>
-          <div class="upi-text">नाम: GuruOfConfigs</div>
+          <div class="upi-text" id="phonepeName">नाम: GuruOfConfigs</div>
         </div>
 
         <div class="qr-card">
@@ -101,7 +101,7 @@
           <a id="upiPaytmLink" href="#" onclick="return tryOpenUPI(event,'paytm')">
             <img src="1000591273.png" alt="Paytm QR">
           </a>
-          <div class="upi-text" id="paytmId">UPI ID: 7869458148@ptyes</div>
+          <div class="upi-text" id="paytmId">UPI ID: <b id="showUpi"></b></div>
         </div>
       </div>
 
@@ -118,8 +118,7 @@
 
   <script>
     const CONFIG = {
-      paytmUpi: "7869458148@ptyes",
-      phonepeUpi: "7869458148@ptyes",
+      upi: "rajeshkumar78694@axl",
       merchantName: "GuruOfConfigs",
       telegram: "https://t.me/+ZP4KvBpRkpQxMDVl"
     };
@@ -127,15 +126,19 @@
     function startPayment(item, amount){
       document.getElementById('modalTitle').innerText = 'Pay ₹' + amount;
       document.getElementById('modalItem').innerText = item + ' • Amount: ₹' + amount;
-      const upiPhone = generateUpiUri(CONFIG.phonepeUpi, CONFIG.merchantName, amount, item);
-      const upiPaytm = generateUpiUri(CONFIG.paytmUpi, CONFIG.merchantName, amount, item);
-      document.getElementById('upiPhonepeLink').href = upiPhone;
-      document.getElementById('upiPaytmLink').href = upiPaytm;
+      const upiUri = generateUpiUri(CONFIG.upi, CONFIG.merchantName, amount, item);
+      // Set both links to same upiUri
+      document.getElementById('upiPhonepeLink').href = upiUri;
+      document.getElementById('upiPaytmLink').href = upiUri;
+      document.getElementById('showUpi').innerText = CONFIG.upi;
       document.getElementById('paymentModalBg').style.display = 'flex';
+
       document.getElementById('copyUpiBtn').onclick = function(){
-        navigator.clipboard.writeText(CONFIG.paytmUpi).then(()=>{
+        navigator.clipboard.writeText(CONFIG.upi).then(()=>{
           this.innerText = 'Copied ✓';
           setTimeout(()=> this.innerText = 'Copy UPI',1400);
+        }).catch(()=> {
+          alert('Copy failed. कृपया long-press करके कॉपी करें: ' + CONFIG.upi)
         });
       }
     }
@@ -143,13 +146,18 @@
     function closeModal(){ document.getElementById('paymentModalBg').style.display='none'; }
 
     function generateUpiUri(vpa, name, amount, note){
+      // Standard UPI uri. Many UPI apps accept this.
       return 'upi://pay?pa='+encodeURIComponent(vpa)+'&pn='+encodeURIComponent(name)+'&am='+encodeURIComponent(amount)+'&cu=INR&tn='+encodeURIComponent(note);
     }
 
     function tryOpenUPI(e){
-      const href = e.currentTarget.href;
-      window.open(href, '_blank');
       e.preventDefault();
+      const href = e.currentTarget.href;
+      // Try open in same tab then fallback to alert
+      window.open(href, '_self');
+      setTimeout(()=> {
+        alert('अगर आपका UPI ऐप नहीं खुला, तो QR स्कैन करें या UPI ID कॉपी करके पे करें: ' + CONFIG.upi);
+      }, 900);
       return false;
     }
 
