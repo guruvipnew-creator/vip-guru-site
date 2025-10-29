@@ -124,7 +124,7 @@
       <div class="qr-flex" style="margin-top:10px">
         <div class="qr-card">
           <div style="font-weight:700;margin-bottom:8px">📱 Open PhonePe (recommended)</div>
-          <a id="upiPhonepeLink" href="#" onclick="return tryOpenUPI(event,'phonepe')">
+          <a id="upiPhonepeLink" href="#" onclick="tryOpenUPI(event)">
             <img src="phonepe_qr.png" alt="PhonePe QR">
           </a>
           <div class="upi-text" id="phonepeName">नाम: GuruOfConfigs</div>
@@ -132,10 +132,10 @@
 
         <div class="qr-card">
           <div style="font-weight:700;margin-bottom:8px">💳 Paytm / UPI</div>
-          <a id="upiPaytmLink" href="#" onclick="return tryOpenUPI(event,'paytm')">
+          <a id="upiPaytmLink" href="#" onclick="tryOpenUPI(event)">
             <img src="paytm_qr.png" alt="Paytm QR">
           </a>
-          <div class="upi-text" id="paytmId">UPI ID: 7869458148@ptyes</div>
+          <div class="upi-text" id="paytmId">UPI ID: rajeshkumar78694@axl</div>
         </div>
       </div>
 
@@ -143,9 +143,9 @@
         <button class="copy-btn" id="copyUpiBtn">Copy UPI</button>
         <button class="copy-btn" onclick="showInstructions()">How to pay</button>
       </div>
-<p style="font-size:13px;color:#666;margin-top:12px;text-align:center">
-  अगर मोबाइल पर UPI ऐप नहीं खुलता — तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें। पे होने के बाद स्क्रीनशॉट और TXN आईडी Telegram पर भेजें: <strong>@GuRuOfCoNfigS</strong>
-</p>
+      <p style="font-size:13px;color:#666;margin-top:12px;text-align:center">
+        अगर मोबाइल पर UPI ऐप नहीं खुलता — तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें। पे होने के बाद स्क्रीनशॉट और TXN आईडी Telegram पर भेजें: <strong>@GuRuOfCoNfigS</strong>
+      </p>
     </div>
   </div>
 
@@ -154,16 +154,21 @@
       paytmUpi: "rajeshkumar78694@axl",
       phonepeUpi: "rajeshkumar78694@axl",
       merchantName: "Guru",
-      telegram: @GuRuOfCoNfigS "
+      telegram: "@GuRuOfCoNfigS"
     };
 
     function startPayment(item, amount){
       document.getElementById('modalTitle').innerText = 'Pay ₹' + amount;
       document.getElementById('modalItem').innerText = item + ' • Amount: ₹' + amount;
+
+      // बनाओ UPI URI
       const upiPhone = generateUpiUri(CONFIG.phonepeUpi, CONFIG.merchantName, amount, item);
       const upiPaytm = generateUpiUri(CONFIG.paytmUpi, CONFIG.merchantName, amount, item);
+
+      // set links (यही links क्लिक करने पर मोबाइल पर UPI ऐप खुलना चाहिए)
       document.getElementById('upiPhonepeLink').href = upiPhone;
       document.getElementById('upiPaytmLink').href = upiPaytm;
+
       document.getElementById('paytmId').innerText = 'UPI ID: ' + CONFIG.paytmUpi;
       document.getElementById('phonepeName').innerText = 'नाम: GuruOfConfigs';
       document.getElementById('paymentModalBg').style.display = 'flex';
@@ -185,19 +190,25 @@
              '&cu=INR&tn=' + encodeURIComponent(note);
     }
 
-    function tryOpenUPI(e, which){
+    function tryOpenUPI(e){
+      // link पहले से startPayment में set हो चुका है
+      // क्लिक पर ब्राउज़र उसे खोल दे — नीचे सिर्फ fallback alert दिखाएँ
       const href = e.currentTarget.href;
+      // हटाएँ preventDefault — ताकि mobile UPI app open करने की कोशिश हो सके
       window.location.href = href;
+
+      // 900ms बाद fallback message दिखाएँ अगर app नहीं खुला
       setTimeout(()=> {
-  alert('अगर आपका UPI ऐप नहीं खुला तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें: ' + CONFIG.paytmUpi + '\n\nपे होने के बाद स्क्रीनशॉट और TXN ID Telegram पर भेजें: @GuRuOfCoNfigS');
-}, 900);
-      e.preventDefault();
-      return false;
+        alert('अगर आपका UPI ऐप नहीं खुला तो ऊपर QR स्कैन करें या UPI ID कॉपी करके पे करें: ' + CONFIG.paytmUpi + '\n\nपे होने के बाद स्क्रीनशॉट और TXN ID Telegram पर भेजें: ' + CONFIG.telegram);
+      }, 900);
+
+      // return true ताकि normal link behaviour भी चले
+      return true;
     }
 
     function showInstructions(){
-  alert('QR स्कैन करें या UPI ID कॉपी करके अपने UPI ऐप में पे करें। पे होने के बाद TXN स्क्रीनशॉट और पे की रसीद (TXN ID) Telegram पर भेजें: @GuRuOfCoNfigS');
-}
+      alert('QR स्कैन करें या UPI ID कॉपी करके अपने UPI ऐप में पे करें। पे होने के बाद TXN स्क्रीनशॉट और पे की रसीद (TXN ID) Telegram पर भेजें: ' + CONFIG.telegram);
+    }
   </script>
 </body>
 </html>
