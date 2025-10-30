@@ -3,152 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🔥 GURU VIP PREBOOKING 4.1 { PRIME MEMBERSHIP } 🔥</title>
+  <title>GURU VIP — Pay & Join</title>
   <style>
-    :root {
-      --red: #ff2d55;
-      --yellow: #ffd60a;
-      --green: #00c851;
-      --blue: #0dcaf0;
-      --dark: #0f1720;
-      --bg: linear-gradient(180deg, #08090b, #13151a);
+    :root{
+      --red:#ff2d55; --yellow:#ffd60a; --green:#00c851; --blue:#0dcaf0;
+      --dark:#081022;
     }
-    *{box-sizing:border-box;}
-    body {
-      margin:0;
-      font-family:"Poppins",system-ui,sans-serif;
-      background:var(--bg);
-      color:#fff;
-      min-height:100vh;
-      padding:20px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family: "Poppins", system-ui, sans-serif;
+      background: linear-gradient(180deg,#061427,#0b2a3b);
+      color:#fff; padding:18px;
     }
-    .wrap { max-width:900px; margin:auto; }
-    header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
-    .logo {
-      width:70px; height:70px; border-radius:16px;
-      background:linear-gradient(135deg,#ff416c,#ff4b2b);
-      display:flex; justify-content:center; align-items:center;
-      font-size:30px; font-weight:900; color:white;
-      box-shadow:0 8px 30px rgba(0,0,0,.5);
-    }
-    h1 { font-size:22px; color:#fff; text-shadow:0 4px 20px rgba(0,0,0,.5); }
-    .hero-card {
-      background:linear-gradient(90deg,#ff416c,#ffed00);
-      border-radius:20px; padding:16px; color:#111;
-      text-align:center; font-weight:800;
-      box-shadow:0 12px 40px rgba(0,0,0,.5);
-    }
-    .plans {margin-top:14px;}
-    .plan {
-      background:rgba(255,255,255,0.12);
-      border-radius:12px; padding:10px 14px;
-      display:flex; justify-content:space-between; align-items:center;
-      margin-bottom:10px; box-shadow:0 6px 20px rgba(0,0,0,.4);
-    }
-    .plan .left{font-size:17px;}
-    .pay-btn {
-      background:linear-gradient(90deg,#0ea5a4,#047857);
-      border:0; color:white; font-weight:700;
-      border-radius:10px; padding:8px 14px; cursor:pointer;
-      box-shadow:0 4px 16px rgba(0,0,0,.5);
-    }
-    .muted {color:#ddd; font-size:14px; margin-top:8px;}
-    .qr-box {
-      margin-top:30px;
-      background:rgba(255,255,255,0.1);
-      padding:18px; border-radius:18px;
-      text-align:center; box-shadow:0 8px 40px rgba(0,0,0,.5);
-    }
-    .qr-box img {
-      width:220px; height:auto;
-      border-radius:12px; display:block;
-      margin:10px auto; box-shadow:0 8px 20px rgba(0,0,0,.4);
-    }
-    .upi-text { margin-top:10px; font-size:17px; font-weight:800; color:#fff; }
-    .colorful-text span {
-      font-weight:900; font-size:18px;
-      text-shadow:0 2px 8px rgba(0,0,0,.6);
-    }
-    .red {color:var(--red);} .yellow {color:var(--yellow);}
-    .blue {color:var(--blue);} .green {color:var(--green);}
-    .telegram {
-      margin-top:24px; text-align:center;
-      padding:14px; border-radius:12px;
-      background:linear-gradient(90deg,#00c6ff,#0072ff);
-      color:#fff; font-weight:900;
-      box-shadow:0 6px 25px rgba(0,0,0,.5);
-    }
-    .telegram a { color:#fff; text-decoration:underline; font-size:17px; }
-    footer { margin-top:24px; text-align:center; font-size:14px; color:#aaa; }
+    .wrap{max-width:920px;margin:0 auto}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--red),#ff8a00);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;color:#fff}
+    h1{margin:0;font-size:22px}
+    .hero{background:linear-gradient(90deg,#ff416c,#ffed00);padding:14px;border-radius:12px;color:#111;font-weight:800;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:14px}
+    .plans{display:grid;gap:10px}
+    .plan{background:rgba(255,255,255,0.06);padding:12px;border-radius:10px;display:flex;justify-content:space-between;align-items:center}
+    .plan .left{font-weight:700}
+    .price{font-weight:900}
+    .btn{background:linear-gradient(90deg,var(--blue),#2563eb);border:0;padding:8px 12px;border-radius:10px;color:#fff;font-weight:800;cursor:pointer}
+    .btn.alt{background:linear-gradient(90deg,#0ea5a4,#047857)}
+    .qr-card{background:rgba(255,255,255,0.06);padding:14px;border-radius:12px;text-align:center}
+    .qr-card img{max-width:220px;border-radius:12px;display:block;margin:8px auto}
+    .upi{margin-top:8px;font-weight:900;color:#fff}
+    .color-note{margin-top:14px;padding:12px;border-radius:10px;background:linear-gradient(90deg,#ff5f6d,#ffc371);color:#111;font-weight:900}
+    .telegram{margin-top:12px;padding:10px;border-radius:10px;background:linear-gradient(90deg,#00c6ff,#0072ff);text-align:center;font-weight:900}
+    .muted{color:rgba(255,255,255,0.8);font-size:13px;margin-top:8px}
+    footer{margin-top:18px;color:rgba(255,255,255,0.6);font-size:13px;text-align:center}
+    @media(max-width:820px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="logo">G</div>
-      <h1>GURU VIP PREBOOKING 4.1 { PRIME MEMBERSHIP }</h1>
+      <div>
+        <h1>GURU VIP PREBOOKING 4.1 — PRIME MEMBERSHIP</h1>
+        <div class="muted">Safty • Fast • Trusted — @GuRuOfCoNfigS</div>
+      </div>
     </header>
 
-    <div class="hero-card">🔥 Choose Your Plan 🔥</div>
+    <div class="hero">🔥 चुनिये अपना प्लान — और Pay करके screenshot भेजें ✓</div>
 
-    <div class="plans">
-      <div class="plan"><div class="left">PRIME Esp + Loader — 1DAY — ₹99</div><button class="pay-btn" onclick="startPayment('99')">Pay Now</button></div>
-      <div class="plan"><div class="left">PRIME Esp + Loader — 3DAY — ₹199</div><button class="pay-btn" onclick="startPayment('199')">Pay Now</button></div>
-      <div class="plan"><div class="left">PRIME Esp + Loader — 7DAY — ₹399</div><button class="pay-btn" onclick="startPayment('399')">Pay Now</button></div>
-      <div class="plan"><div class="left">PRIME Esp + Loader — 1MONTH — ₹699</div><button class="pay-btn" onclick="startPayment('699')">Pay Now</button></div>
-      <div class="plan"><div class="left">PRIME Esp + Loader — FULL SEASON — ₹999</div><button class="pay-btn" onclick="startPayment('999')">Pay Now</button></div>
-      <div class="plan"><div class="left">PRIME Esp + Loader — LIFETIME — ₹2999</div><button class="pay-btn" onclick="startPayment('2999')">Pay Now</button></div>
-      <div class="plan"><div class="left">VIP PAID OBB — FULL SEASON — ₹299</div><button class="pay-btn" onclick="startPayment('299')">Pay Now</button></div>
-      <div class="plan"><div class="left">PAID WALL HACK — FULL SEASON — ₹399</div><button class="pay-btn" onclick="startPayment('399')">Pay Now</button></div>
-    </div>
+    <div class="grid">
+      <!-- LEFT: Plans -->
+      <div>
+        <div class="plans">
+          <div class="plan">
+            <div class="left">PRIME Esp + Loader — 1 DAY</div>
+            <div><span class="price">₹99</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (1DAY)','99')">Pay</button></div>
+          </div>
 
-    <div class="qr-box">
-      <div class="colorful-text">
-        <span class="red">❤️ नीचे स्कैनर और UPI दिया गया है ❤️</span><br>
-        <span class="yellow">💛 पेमेंट करने के बाद Screenshot</span><br>
-        <span class="blue">💙 Owner <b>@GuRuOfCoNfigS</b> को भेजें ✓</span><br>
-        <span class="green">💚 पेमेंट के बाद तुरंत access मिलेगा 💚</span>
+          <div class="plan">
+            <div class="left">PRIME Esp + Loader — 3 DAY</div>
+            <div><span class="price">₹199</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (3DAY)','199')">Pay</button></div>
+          </div>
+
+          <div class="plan">
+            <div class="left">PRIME Esp + Loader — 7 DAY</div>
+            <div><span class="price">₹399</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (7DAY)','399')">Pay</button></div>
+          </div>
+
+          <div class="plan">
+            <div class="left">PRIME Esp + Loader — 1 MONTH</div>
+            <div><span class="price">₹699</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (1MONTH)','699')">Pay</button></div>
+          </div>
+
+          <div class="plan">
+            <div class="left">PRIME Esp + Loader — FULL SEASON</div>
+            <div><span class="price">₹999</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (FULL SEASON)','999')">Pay</button></div>
+          </div>
+
+          <div class="plan">
+            <div class="left">PRIME Esp + Loader — LIFETIME</div>
+            <div><span class="price">₹2999</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (LIFETIME)','2999')">Pay</button></div>
+          </div>
+
+          <div class="plan">
+            <div class="left">PRIME OBB — FULL SEASON</div>
+            <div><span class="price">₹299</span> <button class="btn alt" onclick="startPayment('PRIME OBB (FULL SEASON)','299')">Pay</button></div>
+          </div>
+
+          <div class="plan">
+            <div class="left">PRIME WALL HACK — FULL SEASON</div>
+            <div><span class="price">₹499</span> <button class="btn alt" onclick="startPayment('PRIME WALL HACK (FULL SEASON)','499')">Pay</button></div>
+          </div>
+        </div>
+
+        <div class="muted">नोट: पे होने पर TXN screenshot Telegram पर भेजें — Owner: <b>@GuRuOfCoNfigS</b></div>
       </div>
-      <img id="qrImage" src="" alt="Payment QR">
-      <div class="upi-text">💎 UPI ID: <b>rajeshkumar78694@axl</b></div>
+
+      <!-- RIGHT: QR card -->
+      <div>
+        <div class="qr-card">
+          <div style="font-weight:900;font-size:16px;color:var(--red)">📱 PhonePe Scanner (Main)</div>
+          <img id="qrImg" src="AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png" alt="PhonePe QR">
+          <div class="upi">👉 UPI ID: <b id="upiText">rajeshkumar78694@axl</b></div>
+          <div style="margin-top:10px">
+            <button class="btn" onclick="copyUpi()">Copy UPI</button>
+            <button class="btn alt" onclick="openQrFull()">Full Screen QR</button>
+          </div>
+
+          <div class="color-note" style="margin-top:12px">
+            <span style="color:var(--red)">❤️</span> <span style="color:var(--yellow)">💛</span> <span style="color:var(--blue)">💙</span> <span style="color:var(--green)">💚</span>
+            नीचे स्कैन करें — पे करके Screenshot owner (@GuRuOfCoNfigS) को भेजें ✓
+          </div>
+
+          <div class="telegram" style="margin-top:12px">
+            Join Channel: <a href="https://t.me/+ZP4KvBpRkpQxMDVl" target="_blank" style="color:#fff">https://t.me/+ZP4KvBpRkpQxMDVl</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="telegram">
-      📢 Join My Paid Telegram Channel 💎<br>
-      <a href="https://t.me/+ZP4KvBpRkpQxMDVl" target="_blank">👉 https://t.me/+ZP4KvBpRkpQxMDVl 👈</a>
-    </div>
+    <footer>Made by Guru • Contact: @GuRuOfCoNfigS</footer>
+  </div>
 
-    <footer>
-      MAIN ID FULLY SAFE 1000%<br>
-      Made by @GuRuOfCoNfigS
-    </footer>
+  <!-- Full-screen QR overlay -->
+  <div id="fullQr" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);align-items:center;justify-content:center;z-index:9999">
+    <div style="position:relative;text-align:center">
+      <img id="fullQrImg" src="AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png" alt="QR" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.8)">
+      <div style="margin-top:10px">
+        <button onclick="closeFull()" style="padding:10px 14px;border-radius:8px;border:0;background:#fff;font-weight:800;cursor:pointer">Close</button>
+      </div>
+    </div>
   </div>
 
   <script>
-    const UPI_ID = "rajeshkumar78694@axl";
-    const NAME = "GuruOfConfigs";
+    const UPI = "rajeshkumar78694@axl";
+    const NAME = "Guru";
 
-    // QR image fix — check file availability
-    const qrNames = [
-      "AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png",
-      "1000591424.jpg",
-      "1000591584.jpg"
-    ];
-    const img = document.getElementById("qrImage");
-    for (const name of qrNames) {
-      fetch(name).then(r=>{
-        if(r.ok){ img.src = name; throw "done"; }
-      }).catch(()=>{});
+    function startPayment(item, amount){
+      // build upi uri
+      const note = item || "GURU VIP PAYMENT";
+      const uri = `upi://pay?pa=${encodeURIComponent(UPI)}&pn=${encodeURIComponent(NAME)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(note)}`;
+      // try open
+      window.location.href = uri;
+      // fallback message if app doesn't open
+      setTimeout(()=> {
+        alert("यदि आपका UPI ऐप नहीं खुला — ऊपर दिया गया QR स्कैन करें या UPI ID कॉपी करके पे करें:\n\n" + UPI + "\n\nपे होने पर TXN screenshot भेजें: @GuRuOfCoNfigS");
+      },900);
     }
 
-    function startPayment(amount){
-      const note = "GURU VIP MEMBERSHIP";
-      const upiLink = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(NAME)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(note)}`;
-      window.location.href = upiLink;
-      setTimeout(()=>{
-        alert(`अगर UPI ऐप नहीं खुला — तो ऊपर दिया गया QR स्कैन करें या इस UPI से पे करें:\n${UPI_ID}`);
-      },1200);
+    function copyUpi(){
+      navigator.clipboard.writeText(UPI).then(()=> {
+        alert("UPI ID कॉपी हो गई: " + UPI);
+      }).catch(()=> {
+        prompt("कृपया नीचे UPI ID कॉपी करें:", UPI);
+      });
     }
+
+    function openQrFull(){
+      document.getElementById('fullQr').style.display = 'flex';
+    }
+    function closeFull(){
+      document.getElementById('fullQr').style.display = 'none';
+    }
+
+    // ensure QR image exists (small fallback)
+    (function checkQr(){
+      const possible = [
+        "AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png",
+        "1000591424.jpg",
+        "Paytm_QRcode_1761710176230.png",
+        "Paytm_QRcode_1761710176230.jpg"
+      ];
+      const img = document.getElementById('qrImg');
+      const full = document.getElementById('fullQrImg');
+      let found=false;
+      possible.forEach(name=>{
+        fetch(name).then(r=>{
+          if(r.ok && !found){
+            img.src = name;
+            full.src = name;
+            found=true;
+          }
+        }).catch(()=>{});
+      });
+    })();
   </script>
 </body>
 </html>
