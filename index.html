@@ -5,30 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GURU VIP — Pay & Join</title>
   <style>
-    :root{
-      --red:#ff2d55; --yellow:#ffd60a; --green:#00c851; --blue:#0dcaf0;
-      --dark:#081022;
-    }
+    :root{--red:#ff2d55;--yellow:#ffd60a;--green:#00c851;--blue:#0dcaf0;--bg:#061427;}
     *{box-sizing:border-box}
-    body{
-      margin:0;font-family: "Poppins", system-ui, sans-serif;
-      background: linear-gradient(180deg,#061427,#0b2a3b);
-      color:#fff; padding:18px;
-    }
-    .wrap{max-width:920px;margin:0 auto}
+    body{margin:0;font-family:system-ui,-apple-system,Poppins,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#061427,#0b2a3b);color:#fff;padding:18px}
+    .wrap{max-width:980px;margin:0 auto}
     header{display:flex;gap:12px;align-items:center;margin-bottom:14px}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--red),#ff8a00);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;color:#fff}
+    .logo{width:66px;height:66px;border-radius:12px;background:linear-gradient(135deg,#ff416c,#ff8a00);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;color:#fff}
     h1{margin:0;font-size:22px}
     .hero{background:linear-gradient(90deg,#ff416c,#ffed00);padding:14px;border-radius:12px;color:#111;font-weight:800;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:14px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:14px}
     .plans{display:grid;gap:10px}
     .plan{background:rgba(255,255,255,0.06);padding:12px;border-radius:10px;display:flex;justify-content:space-between;align-items:center}
     .plan .left{font-weight:700}
     .price{font-weight:900}
-    .btn{background:linear-gradient(90deg,var(--blue),#2563eb);border:0;padding:8px 12px;border-radius:10px;color:#fff;font-weight:800;cursor:pointer}
+    .btn{background:linear-gradient(90deg,var(--blue),#2563eb);border:0;padding:8px 14px;border-radius:10px;color:#fff;font-weight:800;cursor:pointer}
     .btn.alt{background:linear-gradient(90deg,#0ea5a4,#047857)}
     .qr-card{background:rgba(255,255,255,0.06);padding:14px;border-radius:12px;text-align:center}
-    .qr-card img{max-width:220px;border-radius:12px;display:block;margin:8px auto}
+    .qr-card img{max-width:240px;border-radius:12px;display:block;margin:8px auto}
     .upi{margin-top:8px;font-weight:900;color:#fff}
     .color-note{margin-top:14px;padding:12px;border-radius:10px;background:linear-gradient(90deg,#ff5f6d,#ffc371);color:#111;font-weight:900}
     .telegram{margin-top:12px;padding:10px;border-radius:10px;background:linear-gradient(90deg,#00c6ff,#0072ff);text-align:center;font-weight:900}
@@ -43,7 +36,7 @@
       <div class="logo">G</div>
       <div>
         <h1>GURU VIP PREBOOKING 4.1 — PRIME MEMBERSHIP</h1>
-        <div class="muted">Safty • Fast • Trusted — @GuRuOfCoNfigS</div>
+        <div class="muted">Safe • Fast • Trusted — Owner: @GuRuOfCoNfigS</div>
       </div>
     </header>
 
@@ -55,42 +48,42 @@
         <div class="plans">
           <div class="plan">
             <div class="left">PRIME Esp + Loader — 1 DAY</div>
-            <div><span class="price">₹99</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (1DAY)','99')">Pay</button></div>
+            <div><span class="price">₹99</span> <button class="btn" onclick="payAndShow('PRIME Esp + Loader (1DAY)','99')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME Esp + Loader — 3 DAY</div>
-            <div><span class="price">₹199</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (3DAY)','199')">Pay</button></div>
+            <div><span class="price">₹199</span> <button class="btn" onclick="payAndShow('PRIME Esp + Loader (3DAY)','199')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME Esp + Loader — 7 DAY</div>
-            <div><span class="price">₹399</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (7DAY)','399')">Pay</button></div>
+            <div><span class="price">₹399</span> <button class="btn" onclick="payAndShow('PRIME Esp + Loader (7DAY)','399')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME Esp + Loader — 1 MONTH</div>
-            <div><span class="price">₹699</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (1MONTH)','699')">Pay</button></div>
+            <div><span class="price">₹699</span> <button class="btn" onclick="payAndShow('PRIME Esp + Loader (1MONTH)','699')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME Esp + Loader — FULL SEASON</div>
-            <div><span class="price">₹999</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (FULL SEASON)','999')">Pay</button></div>
+            <div><span class="price">₹999</span> <button class="btn" onclick="payAndShow('PRIME Esp + Loader (FULL SEASON)','999')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME Esp + Loader — LIFETIME</div>
-            <div><span class="price">₹2999</span> <button class="btn" onclick="startPayment('PRIME Esp + Loader (LIFETIME)','2999')">Pay</button></div>
+            <div><span class="price">₹2999</span> <button class="btn" onclick="payAndShow('PRIME Esp + Loader (LIFETIME)','2999')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME OBB — FULL SEASON</div>
-            <div><span class="price">₹299</span> <button class="btn alt" onclick="startPayment('PRIME OBB (FULL SEASON)','299')">Pay</button></div>
+            <div><span class="price">₹299</span> <button class="btn alt" onclick="payAndShow('PRIME OBB (FULL SEASON)','299')">Pay</button></div>
           </div>
 
           <div class="plan">
             <div class="left">PRIME WALL HACK — FULL SEASON</div>
-            <div><span class="price">₹499</span> <button class="btn alt" onclick="startPayment('PRIME WALL HACK (FULL SEASON)','499')">Pay</button></div>
+            <div><span class="price">₹499</span> <button class="btn alt" onclick="payAndShow('PRIME WALL HACK (FULL SEASON)','499')">Pay</button></div>
           </div>
         </div>
 
@@ -124,7 +117,7 @@
   </div>
 
   <!-- Full-screen QR overlay -->
-  <div id="fullQr" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);align-items:center;justify-content:center;z-index:9999">
+  <div id="fullQr" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;z-index:9999">
     <div style="position:relative;text-align:center">
       <img id="fullQrImg" src="AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png" alt="QR" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.8)">
       <div style="margin-top:10px">
@@ -135,17 +128,25 @@
 
   <script>
     const UPI = "rajeshkumar78694@axl";
-    const NAME = "Guru";
+    const NAME = "Guru VIP";
 
-    function startPayment(item, amount){
-      // build upi uri
+    // payAndShow: 1) open QR full screen 2) try to open UPI app with amount & note
+    function payAndShow(item, amount){
+      // 1) show QR fullscreen (user can scan)
+      openQrFull();
+
+      // 2) build upi uri and try open (this will prompt UPI apps with amount)
       const note = item || "GURU VIP PAYMENT";
       const uri = `upi://pay?pa=${encodeURIComponent(UPI)}&pn=${encodeURIComponent(NAME)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(note)}`;
-      // try open
+
+      // try to open UPI intent
+      // First attempt: window.location (works on many Android browsers)
       window.location.href = uri;
-      // fallback message if app doesn't open
+
+      // If app doesn't open within 1s, show fallback instructions
       setTimeout(()=> {
-        alert("यदि आपका UPI ऐप नहीं खुला — ऊपर दिया गया QR स्कैन करें या UPI ID कॉपी करके पे करें:\n\n" + UPI + "\n\nपे होने पर TXN screenshot भेजें: @GuRuOfCoNfigS");
+        // keep QR open so user can manually scan
+        alert("यदि आपका UPI ऐप नहीं खुला — ऊपर QR स्कैन करें या नीचे UPI कॉपी कर पे करें:\n\n" + UPI + "\n\nपे होने पर TXN screenshot Telegram पर भेजें: @GuRuOfCoNfigS");
       },900);
     }
 
@@ -158,32 +159,53 @@
     }
 
     function openQrFull(){
-      document.getElementById('fullQr').style.display = 'flex';
-    }
-    function closeFull(){
-      document.getElementById('fullQr').style.display = 'none';
-    }
-
-    // ensure QR image exists (small fallback)
-    (function checkQr(){
+      // set srcs (fallback detection)
       const possible = [
         "AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png",
         "1000591424.jpg",
-        "Paytm_QRcode_1761710176230.png",
-        "Paytm_QRcode_1761710176230.jpg"
+        "1000591584.jpg",
+        "Paytm_QRcode_1761710176230.png"
       ];
       const img = document.getElementById('qrImg');
       const full = document.getElementById('fullQrImg');
       let found=false;
-      possible.forEach(name=>{
-        fetch(name).then(r=>{
-          if(r.ok && !found){
-            img.src = name;
-            full.src = name;
-            found=true;
+      (function tryNext(i){
+        if(i>=possible.length){ showOverlay(possible[0]); return; }
+        fetch(possible[i]).then(r=>{
+          if(r.ok){
+            img.src = possible[i]; full.src = possible[i]; showOverlay(possible[i]);
+          } else tryNext(i+1);
+        }).catch(()=> tryNext(i+1));
+      })(0);
+    }
+
+    function showOverlay(name){
+      document.getElementById('fullQr').style.display='flex';
+      // ensure the full image src was set earlier by openQrFull()
+    }
+    function closeFull(){ document.getElementById('fullQr').style.display='none'; }
+
+    // initial fallback set
+    (function initQr(){
+      const img = document.getElementById('qrImg');
+      const full = document.getElementById('fullQrImg');
+      const tryNames = [
+        "AccountQRCodeIndian Bank - 7279_LIGHT_THEME.png",
+        "1000591424.jpg",
+        "1000591584.jpg",
+        "Paytm_QRcode_1761710176230.png",
+        "Paytm_QRcode_1761710176230.jpg"
+      ];
+      for(let i=0;i<tryNames.length;i++){
+        fetch(tryNames[i]).then(r=>{
+          if(r.ok && img.src===''){
+            img.src = tryNames[i];
+            full.src = tryNames[i];
           }
         }).catch(()=>{});
-      });
+      }
+      // fallback text if image doesn't load
+      setTimeout(()=>{ if(!img.src) img.alt = "QR image not found. Upload correct file in repo."; },1500);
     })();
   </script>
 </body>
